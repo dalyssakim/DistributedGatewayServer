@@ -35,12 +35,10 @@ public class JDModule extends Thread{
 		
 		try{
 			
-			InetAddress addr = InetAddress.getByName(INET_ADDR);
-
 			 server = new ServerSocket(PORT);
 			while(stopThread == false){
-			Message msg = null;
-			Socket socket = server.accept();
+
+				Socket socket = server.accept();
 			
 				NodeHandler handler = new NodeHandler(socket);
 				handler.start();
@@ -58,19 +56,6 @@ public class JDModule extends Thread{
 				e.printStackTrace();
 			}
 		}
-	}
-	
-	public static byte[] serialize(Object obj) throws IOException {
-	    ByteArrayOutputStream out = new ByteArrayOutputStream();
-	    ObjectOutputStream os = new ObjectOutputStream(out);
-	    os.writeObject(obj);
-	    return out.toByteArray();
-	}
-	
-	public static Object deserialize(byte[] data) throws IOException, ClassNotFoundException {
-	    ByteArrayInputStream in = new ByteArrayInputStream(data);
-	    ObjectInputStream is = new ObjectInputStream(in);
-	    return is.readObject();
 	}
 	
 	public void stopServer(){

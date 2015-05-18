@@ -15,7 +15,6 @@ public class Engine {
 				msg.data = JobFactory.getJob("Mean");
 				msg.type = MessageType.pushInterface;
 				msg.id = 0;
-				
 
 				node.setStatus(NodeStatus.run);
 				node.setJobName("Mean");

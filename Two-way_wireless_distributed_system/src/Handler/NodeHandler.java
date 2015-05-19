@@ -1,3 +1,4 @@
+package Handler;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -7,7 +8,9 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import EngineProcesses.Engine;
 import Interface.Job;
+import Message.JDMessage;
 import Nodes.Node;
 
 
@@ -15,7 +18,7 @@ public class NodeHandler extends Thread{
 
 	private String serverName = "JDServer";
 	private byte[] buf = new byte[1024];
-	private Message msg;
+	private JDMessage msg;
 	private Socket socket;
 	public NodeHandler(Socket socket){
 		this.socket = socket;
@@ -31,11 +34,10 @@ public class NodeHandler extends Thread{
 				in.read(buf);
 				if(buf != null){
 				Object obj = deserialize(buf);
-				msg = (Message)obj;
-
-				new Engine().process(msg);
+				msg = (JDMessage)obj;
+				System.out.println("HandlerStarted");
 			
-				out.write(serialize(msg));
+				out.write(serialize(new Engine(msg).process()));
 
 				}
 				else {

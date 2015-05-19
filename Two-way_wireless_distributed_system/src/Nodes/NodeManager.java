@@ -1,3 +1,4 @@
+package Nodes;
 
 import java.util.HashMap;
 import Nodes.Node;
@@ -24,5 +25,12 @@ public class NodeManager {
 	
 	public Node getNode(int id){
 		return (Node) nodeMap.get(Integer.toString(id));
+	}
+	
+	public void changeNodeStatus(int id, int type, String jobName){
+		Node node = getNode(id);
+		node.setStatus(type);
+		node.setJobName(jobName);
+		
 	}
 }

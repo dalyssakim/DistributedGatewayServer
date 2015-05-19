@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import javax.crypto.NoSuchPaddingException;
 
 import Interface.Job;
+import Message.JDMessage;
+import Message.JDMessageType;
 import Socket.AbstractSocket;
 import Socket.DESSocket;
 import Socket.SocketFactory;
@@ -42,9 +44,9 @@ public class Client {
 			Socket clientSocket = new Socket(address, PORT);
 			OutputStream outputStream = clientSocket.getOutputStream();
 			InputStream inputStream = clientSocket.getInputStream();
-			Message dObject = new Message();
+			JDMessage dObject = new JDMessage();
 			dObject.id=id;
-			dObject.type = MessageType.pullInterface;
+			dObject.type = JDMessageType.pullInterface;
 			dObject.data = null;
 			outputStream.write(serialize(dObject));
 		
@@ -57,7 +59,7 @@ public class Client {
 				}
 
 				Object obj = deserialize(buf);
-				dObject = (Message)obj;
+				dObject = (JDMessage)obj;
 				
 				clientSocket.close();
 				if(dObject.id == 0){
@@ -65,7 +67,7 @@ public class Client {
 					System.out.println("Message From Server");
 					Job job = (Job) dObject.data;
 					dObject.id = id;
-					dObject.type = MessageType.pushResult;
+					dObject.type = JDMessageType.pushResult;
 					dObject.data = job.doJob(data);
 					//System.out.println(job.doJob(data));
 					System.out.println("Sending Result : " + dObject.data);

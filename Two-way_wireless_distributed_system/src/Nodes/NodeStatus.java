@@ -1,3 +1,4 @@
+package Nodes;
 
 public class NodeStatus {
 

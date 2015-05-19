@@ -2,6 +2,8 @@ import java.net.UnknownHostException;
 
 import Nodes.GatewayNode;
 import Nodes.Node;
+import Nodes.NodeManager;
+import Nodes.NodeStatus;
 
 
 public class ServerMain {

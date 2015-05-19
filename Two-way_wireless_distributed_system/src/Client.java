@@ -88,7 +88,7 @@ public class Client {
 			Client client = new Client();
 			
 			for(int i = 0; i < 100; i ++){
-				data.add(""+i);
+				data.add((double)i);
 			}
 			client.SendMSG(data, result);
 

@@ -5,5 +5,5 @@ import java.util.ArrayList;
 
 public interface Job extends Serializable{
 	
-	public Object doJob(ArrayList data);
+	public <T extends Object> Object  doJob(ArrayList<T> data);
 }

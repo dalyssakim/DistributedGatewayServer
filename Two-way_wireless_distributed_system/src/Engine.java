@@ -30,7 +30,7 @@ public class Engine {
 			}
 			//
 		}else if(msg.type == MessageType.pushResult){
-			System.out.println("From Node Id "+msg.id+", Result :"+(String)msg.data);
+			System.out.println("From Node Id "+msg.id+", Result :"+msg.data);
 			msg.type = MessageType.acceptResult;
 			msg.id = 0;
 		}else{

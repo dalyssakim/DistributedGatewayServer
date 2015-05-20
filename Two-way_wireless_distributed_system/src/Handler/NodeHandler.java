@@ -35,7 +35,6 @@ public class NodeHandler extends Thread{
 				if(buf != null){
 				Object obj = deserialize(buf);
 				msg = (JDMessage)obj;
-				System.out.println("HandlerStarted");
 			
 				out.write(serialize(new Engine(msg).process()));
 

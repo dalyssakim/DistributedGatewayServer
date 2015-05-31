@@ -1,4 +1,4 @@
-package Socket;
+package com.mydistributedsystem.socket;
 
 import java.io.IOException;
 import java.net.Socket;

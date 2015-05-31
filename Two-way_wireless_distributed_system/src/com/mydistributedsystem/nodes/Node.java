@@ -1,4 +1,4 @@
-package Nodes;
+package com.mydistributedsystem.nodes;
 
 public abstract class Node {
 

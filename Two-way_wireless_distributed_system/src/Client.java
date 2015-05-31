@@ -21,12 +21,12 @@ import java.util.ArrayList;
 
 import javax.crypto.NoSuchPaddingException;
 
-import Interface.Job;
-import Message.JDMessage;
-import Message.JDMessageType;
-import Socket.AbstractSocket;
-import Socket.DESSocket;
-import Socket.SocketFactory;
+import com.mydistributedsystem.interfaces.Job;
+import com.mydistributedsystem.message.JDMessage;
+import com.mydistributedsystem.message.JDMessageType;
+import com.mydistributedsystem.socket.AbstractSocket;
+import com.mydistributedsystem.socket.DESSocket;
+import com.mydistributedsystem.socket.SocketFactory;
 
 public class Client {
 	

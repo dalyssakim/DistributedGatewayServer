@@ -1,10 +1,11 @@
-package EngineProcesses;
-import Interface.JobFactory;
-import Nodes.Node;
-import Nodes.NodeManager;
-import Nodes.NodeStatus;
-import Message.JDMessage;
-import Message.JDMessageType;
+package com.mydistributedsystem.serverengine;
+
+import com.mydistributedsystem.interfaces.JobFactory;
+import com.mydistributedsystem.message.JDMessage;
+import com.mydistributedsystem.message.JDMessageType;
+import com.mydistributedsystem.nodes.NodeManager;
+import com.mydistributedsystem.nodes.NodeStatus;
+
 
 public class processHalt extends EngineProcess{
 
@@ -13,8 +14,7 @@ public class processHalt extends EngineProcess{
 		try {
 			msg.setMessage(0, JDMessageType.halt, JobFactory.getJob("Halt"));
 			NodeManager.getNodeManager().changeNodeStatus(msg.id, NodeStatus.ready, "Halt");			
-		} catch (ClassNotFoundException | InstantiationException
-				| IllegalAccessException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

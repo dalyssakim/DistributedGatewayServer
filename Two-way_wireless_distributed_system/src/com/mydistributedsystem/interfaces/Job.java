@@ -1,4 +1,4 @@
-package Interface;
+package com.mydistributedsystem.interfaces;
 
 import java.io.Serializable;
 import java.util.ArrayList;

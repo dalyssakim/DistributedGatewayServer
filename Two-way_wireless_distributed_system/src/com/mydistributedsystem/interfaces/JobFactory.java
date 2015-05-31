@@ -1,6 +1,6 @@
-package Interface;
+package com.mydistributedsystem.interfaces;
 
-import Socket.AbstractSocket;
+import com.mydistributedsystem.socket.AbstractSocket;
 
 public class JobFactory {
 

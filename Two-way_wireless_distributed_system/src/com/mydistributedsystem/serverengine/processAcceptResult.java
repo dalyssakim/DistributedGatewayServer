@@ -1,7 +1,7 @@
-package EngineProcesses;
-import Interface.JobFactory;
-import Message.JDMessage;
-import Message.JDMessageType;
+package com.mydistributedsystem.serverengine;
+import com.mydistributedsystem.interfaces.JobFactory;
+import com.mydistributedsystem.message.JDMessage;
+import com.mydistributedsystem.message.JDMessageType;
 
 
 public class processAcceptResult extends EngineProcess{

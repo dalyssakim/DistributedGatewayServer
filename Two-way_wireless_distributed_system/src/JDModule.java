@@ -9,10 +9,10 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import Handler.NodeHandler;
-import Interface.Job;
-import Socket.AbstractSocket;
-import Socket.SocketFactory;
+import com.mydistributedsystem.handler.NodeHandler;
+import com.mydistributedsystem.interfaces.Job;
+import com.mydistributedsystem.socket.AbstractSocket;
+import com.mydistributedsystem.socket.SocketFactory;
 
 
 public class JDModule extends Thread{

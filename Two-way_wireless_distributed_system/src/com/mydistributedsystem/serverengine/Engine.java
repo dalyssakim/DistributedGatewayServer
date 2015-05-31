@@ -1,7 +1,7 @@
-package EngineProcesses;
-import Interface.JobFactory;
-import Message.JDMessage;
-import Nodes.Node;
+package com.mydistributedsystem.serverengine;
+
+import com.mydistributedsystem.message.JDMessage;
+
 
 
 public class Engine {
@@ -12,8 +12,7 @@ public class Engine {
 		this.msg = msg;
 		try {
 			engine = ProcessFactory.EngineProcess(msg.type);
-		} catch (ClassNotFoundException | InstantiationException
-				| IllegalAccessException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 

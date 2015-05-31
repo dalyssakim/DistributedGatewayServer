@@ -1,23 +1,22 @@
-package EngineProcesses;
-import Interface.JobFactory;
-import Nodes.Node;
-import Nodes.NodeManager;
-import Nodes.NodeStatus;
-import Message.JDMessage;
-import Message.JDMessageType;
+package com.mydistributedsystem.serverengine;
+
+import com.mydistributedsystem.interfaces.JobFactory;
+import com.mydistributedsystem.message.JDMessage;
+import com.mydistributedsystem.message.JDMessageType;
+import com.mydistributedsystem.nodes.NodeManager;
+import com.mydistributedsystem.nodes.NodeStatus;
+
 
 
 public class processSendInterface extends EngineProcess{
 
-	@Override
 	public JDMessage process(JDMessage msg) {
 		// TODO Auto-generated method stub
 		try {
 			NodeManager.getNodeManager().changeNodeStatus(msg.id, NodeStatus.run, "Mean");			
 			msg.setMessage(0, JDMessageType.pushInterface, JobFactory.getJob("Mean"));
 			
-		} catch (ClassNotFoundException | InstantiationException
-				| IllegalAccessException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

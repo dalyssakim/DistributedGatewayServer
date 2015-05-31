@@ -1,4 +1,4 @@
-package Message;
+package com.mydistributedsystem.message;
 
 public class JDMessageType {
 	

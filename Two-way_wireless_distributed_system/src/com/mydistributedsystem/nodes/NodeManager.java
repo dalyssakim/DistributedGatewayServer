@@ -1,7 +1,8 @@
-package Nodes;
+package com.mydistributedsystem.nodes;
 
 import java.util.HashMap;
-import Nodes.Node;
+
+import com.mydistributedsystem.nodes.Node;
 
 
 public class NodeManager {

@@ -1,4 +1,4 @@
-package Interface;
+package com.mydistributedsystem.interfaces;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class JobMean implements Job{
 			
 		}else {
 			for(int i = 0; i < data.size(); i++){
-				sum += (double)data.get(i);
+				sum += (Double)data.get(i);
 			}
 			
 			return sum/data.size();

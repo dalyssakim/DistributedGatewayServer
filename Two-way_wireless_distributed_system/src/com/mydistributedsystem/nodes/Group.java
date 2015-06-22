@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Group extends Node{
 
 	public int gid;
-	public ArrayList<Node> group = new ArrayList();
+	public ArrayList<Node> nodeList = new ArrayList();
 	
 	
 }

@@ -1,5 +1,6 @@
 package com.mydistributedsystem.modules;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 import com.mydistributedsystem.interfaces.JobFactory;
 import com.mydistributedsystem.nodes.GatewayNode;
@@ -12,6 +13,7 @@ import com.mydistributedsystem.ui.SystemMonitor;
 
 public class ServerMain {
 	public static Group group1 = new Group();
+	public static ArrayList<Group> glist = new ArrayList();
 	
 	static int dpacketsize = 1024;
 	public static void main(String[] args) throws InterruptedException, UnknownHostException{
@@ -34,8 +36,9 @@ public class ServerMain {
 
 		
 		group1.gid = 1;
-		group1.group.add(node);
-		group1.group.add(node2);
+		group1.nodeList.add(node);
+		group1.nodeList.add(node2);
+		glist.add(group1);
 		NodeManager.getNodeManager().addNode(node.getId(), node );
 		NodeManager.getNodeManager().addNode(node2.getId(), node2 );
 

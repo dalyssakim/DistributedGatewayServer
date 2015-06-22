@@ -18,11 +18,7 @@ public class ProcessFactory {
 			return new processSendInterface();
 		}
 		
-		for(int i = 0; i < ServerMain.group1.group.size(); i++){
-			if(ServerMain.group1.group.get(i).getStatus() == NodeStatus.run && ServerMain.group1.group.get(i).getId() != msg.id){
-				 return new processHalt();
-			}
-		}
+		// new routine
 		
 		switch (msg.type){
 		case   JDMessageType.pullInterface : return new processSendInterface();

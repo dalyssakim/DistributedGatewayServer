@@ -90,10 +90,12 @@ public class Client2 {
 			Client2 client = new Client2();
 			
 			for(int i = 0; i < 100; i ++){
-				data.add((double)(i*10));
+				data.add((double)(i*15));
 			}
+			while(true){
 			client.SendMSG(data, result);
-
+			Thread.sleep(1000);
+			}
 	}
 	
 	public static byte[] serialize(Object obj) throws IOException {

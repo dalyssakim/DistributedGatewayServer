@@ -92,9 +92,9 @@ public class Client {
 			for(int i = 0; i < 100; i ++){
 				data.add((double)i);
 			}
-			while(true){
+			for(int i = 0; i < 10; i ++){
 			client.SendMSG(data, result);
-			Thread.sleep(10);
+			Thread.sleep(1000);
 			}
 	}
 	

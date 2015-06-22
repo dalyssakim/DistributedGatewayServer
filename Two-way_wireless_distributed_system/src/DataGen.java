@@ -28,10 +28,10 @@ import com.mydistributedsystem.socket.AbstractSocket;
 import com.mydistributedsystem.socket.DESSocket;
 import com.mydistributedsystem.socket.SocketFactory;
 
-public class Client {
+public class DataGen {
 	
-	final static String INET_ADDR = "127.0.0.1";
-	final static int PORT = 50505;
+	final static String INET_ADDR = "192.168.11.10";
+	final static int PORT = 8888;
 	final static int id = 2;
 	
 	
@@ -41,40 +41,23 @@ public class Client {
 		byte[] buf = new byte[1024];
 
 		try{
-			Socket clientSocket = new Socket(address, PORT);
-			OutputStream outputStream = clientSocket.getOutputStream();
-			InputStream inputStream = clientSocket.getInputStream();
-			JDMessage dObject = new JDMessage();
-			dObject.id=id;
-			dObject.type = JDMessageType.pullInterface;
-			dObject.data = null;
-			outputStream.write(serialize(dObject));
-		
-			int charsRead = 0;
-
-				System.out.println("Client Sent Message");
-				inputStream.read(buf);
-				while(buf.length <= 0){
-					inputStream.read(buf);
-				}
-
-				Object obj = (Object) deserialize(buf);
-				dObject = (JDMessage)obj;
+			
+			for(int i = 0; i < 100; i++){
+				Socket clientSocket = new Socket(address, PORT);
+				OutputStream outputStream = clientSocket.getOutputStream();
+				InputStream inputStream = clientSocket.getInputStream();
 				
-				clientSocket.close();
-				if(dObject.id == 0){
-					Socket clientSocket2 = new Socket(address, PORT);
-					System.out.println("Message From Server");
-					Job job = (Job) dObject.data;
-					dObject.id = id;
-					dObject.type = JDMessageType.pushResult;
-					dObject.data = job.doJob(data);
-					//System.out.println(job.doJob(data));
-					System.out.println("Sending Result : " + dObject.data);
-					outputStream = clientSocket2.getOutputStream();
-					outputStream.write(serialize(dObject));
-					clientSocket2.close();
-				}
+				JDMessage dObject = new JDMessage();
+				dObject.id=id;
+				dObject.type = JDMessageType.pullInterface;
+				dObject.data = Math.random()*10+1;
+				System.out.println(dObject.data+"> Sent");
+			outputStream.write(serialize(dObject));
+
+			clientSocket.close();
+			}
+			
+
 		} catch(IOException e){
 			e.printStackTrace();
 		}
@@ -87,15 +70,13 @@ public class Client {
 
 		ArrayList data = new ArrayList();
 		Object result = null;
-			Client client = new Client();
+			DataGen client = new DataGen();
 			
 			for(int i = 0; i < 100; i ++){
 				data.add((double)i);
 			}
-			while(true){
 			client.SendMSG(data, result);
-			Thread.sleep(10);
-			}
+
 	}
 	
 	public static byte[] serialize(Object obj) throws IOException {

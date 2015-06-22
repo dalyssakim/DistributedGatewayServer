@@ -13,5 +13,6 @@ public class NodeStatus {
 	public static int ready = 2;
 	public static int run = 3;
 	public static int pending = 4;
+	public static int idle = 5;
 
 }

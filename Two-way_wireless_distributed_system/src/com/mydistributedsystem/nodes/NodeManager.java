@@ -1,11 +1,12 @@
 package com.mydistributedsystem.nodes;
 
 import java.util.HashMap;
+import java.util.Observable;
 
 import com.mydistributedsystem.nodes.Node;
 
 
-public class NodeManager {
+public class NodeManager extends Observable{
 
 	private static NodeManager nodeManager;
 	private HashMap nodeMap = new HashMap();
@@ -21,17 +22,32 @@ public class NodeManager {
 	}
 	
 	public void addNode(int id, Node node){
-		nodeMap.put(Integer.toString(id), node);
+
+		nodeMap.put(id+"", node);
+		updateUI(getNode(id));
 	}
 	
 	public Node getNode(int id){
-		return (Node) nodeMap.get(Integer.toString(id));
+
+		return (Node) nodeMap.get(id+"");
 	}
 	
 	public void changeNodeStatus(int id, int type, String jobName){
+		
+		
+		
 		Node node = getNode(id);
+		if(node != null){
 		node.setStatus(type);
 		node.setJobName(jobName);
-		
+
+		updateUI(node);
+
+		}
+	}
+	
+	protected void updateUI(Node node){
+		setChanged();
+		this.notifyObservers(node);
 	}
 }

@@ -2,7 +2,7 @@ package com.mydistributedsystem.interfaces;
 
 import java.util.ArrayList;
 
-public class JobMean implements Job{
+public class JobMean extends Job{
 
 
 	/**

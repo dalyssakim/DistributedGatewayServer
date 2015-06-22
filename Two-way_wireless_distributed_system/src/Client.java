@@ -58,7 +58,7 @@ public class Client {
 					inputStream.read(buf);
 				}
 
-				Object obj = deserialize(buf);
+				Object obj = (Object) deserialize(buf);
 				dObject = (JDMessage)obj;
 				
 				clientSocket.close();

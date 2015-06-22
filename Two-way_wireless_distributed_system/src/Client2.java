@@ -90,7 +90,7 @@ public class Client2 {
 			Client2 client = new Client2();
 			
 			for(int i = 0; i < 100; i ++){
-				data.add(""+i+10);
+				data.add((double)(i*10));
 			}
 			client.SendMSG(data, result);
 

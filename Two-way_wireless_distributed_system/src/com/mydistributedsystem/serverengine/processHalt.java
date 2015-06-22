@@ -12,8 +12,9 @@ public class processHalt extends EngineProcess{
 	public  JDMessage process(JDMessage msg){
 
 		try {
-			msg.setMessage(0, JDMessageType.halt, JobFactory.getJob("Halt"));
-			NodeManager.getNodeManager().changeNodeStatus(msg.id, NodeStatus.ready, "Halt");			
+			NodeManager.getNodeManager().changeNodeStatus(msg.id, NodeStatus.ready, NodeManager.getNodeManager().getNode(msg.id).getJobName());
+			
+			msg.setMessage(0, JDMessageType.halt, JobFactory.getJob("JobHalt"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

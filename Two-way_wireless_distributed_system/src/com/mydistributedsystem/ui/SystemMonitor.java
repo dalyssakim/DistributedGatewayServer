@@ -71,7 +71,7 @@ public class SystemMonitor extends JFrame implements Observer {
 		statusLabel = new JLabel("Status", JLabel.CENTER);
 		
 		statusLabel.setSize(350, 100);
-		Object columnNames[] = {"GID", "ID", "NodeName","Currnt Job", "Status"}; 
+		Object columnNames[] = {"GID", "ID", "NodeName","Currnt Job", "Status","Last Commit"}; 
 		table = new JTable();
 		tableModel = new DefaultTableModel(columnNames, 0);
 		this.makeRowData();
@@ -162,7 +162,7 @@ public class SystemMonitor extends JFrame implements Observer {
 				}else {
 					status = "Undefined";
 				}
-				tableModel.addRow(new Object[]{n.getGid()+"",n.getId()+"", "Android-"+n.getId(), n.getJobName()+"" ,status});
+				tableModel.addRow(new Object[]{n.getGid()+"",n.getId()+"", "Android-"+n.getId(), n.getJobName()+"" ,status, n.getRecentVal()+""});
 
 			}
 			else{
@@ -184,7 +184,7 @@ public class SystemMonitor extends JFrame implements Observer {
 	
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		System.out.println("Update "+o+", "+arg);
+	//	System.out.println("Update "+o+", "+arg);
 		int originalCount = tableModel.getRowCount();
 		for(int i = 0; i < originalCount; i++){
 			tableModel.removeRow(0);

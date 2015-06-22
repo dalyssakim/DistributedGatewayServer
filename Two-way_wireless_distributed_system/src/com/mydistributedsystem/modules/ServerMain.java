@@ -2,6 +2,7 @@ package com.mydistributedsystem.modules;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import com.mydistributedsystem.faulttolerance.FaultTolerance;
 import com.mydistributedsystem.faulttolerance.Timer;
 import com.mydistributedsystem.interfaces.JobFactory;
 import com.mydistributedsystem.nodes.GatewayNode;
@@ -37,6 +38,7 @@ public class ServerMain {
 
 		
 		group1.gid = 1;
+		group1.currentNode = node;
 		group1.nodeList.add(node);
 		group1.nodeList.add(node2);
 		glist.add(group1);
@@ -49,6 +51,10 @@ public class ServerMain {
 		SystemMonitor.getMonitor().prepareGUI();
 			// Getting the address of clients
 		JDModule module = new JDModule(dpacketsize, "DAJUNG-SERVER");
+		Timer time = new Timer();
+		time.startTimer();
+		FaultTolerance ft = new FaultTolerance();
+		ft.startFaultTolerance();
 		module.startServer();
 		
 	}

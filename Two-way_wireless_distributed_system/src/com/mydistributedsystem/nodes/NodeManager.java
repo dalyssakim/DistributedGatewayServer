@@ -38,9 +38,12 @@ public class NodeManager extends Observable{
 		
 		Node node = getNode(id);
 		if(node != null){
+			if(type != -1){
 		node.setStatus(type);
+			}
+		if(jobName != null){
 		node.setJobName(jobName);
-
+		}
 		updateUI(node);
 
 		}

@@ -18,7 +18,7 @@ public class processSendInterface extends EngineProcess{
 		//	msg.setMessage(0, JDMessageType.pushInterface, JobFactory.getJob("JobMean"));
 			
 				String path = 			"C:\\Users\\Dajung\\workspace\\StrategyPattern\\bin\\JobAccumulate.class";
-					NodeManager.getNodeManager().changeNodeStatus(msg.id, NodeStatus.run, 	NodeManager.getNodeManager().getNode(msg.id).getJobName());			
+				//	NodeManager.getNodeManager().changeNodeStatus(msg.id, NodeStatus.run, 	NodeManager.getNodeManager().getNode(msg.id).getJobName());			
 					msg.setMessage(0, JDMessageType.pushInterface, 	JobFactory.getJob(NodeManager.getNodeManager().getNode(msg.id).getJobName()));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

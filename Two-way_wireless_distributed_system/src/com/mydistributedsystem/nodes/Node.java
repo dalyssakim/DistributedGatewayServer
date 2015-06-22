@@ -9,8 +9,21 @@ public abstract class Node {
 		private String jobName;
 		private boolean isJobChanged = false;
 		private int recent_ts ; //  
+		private Object recentVal = null;
 		
 		
+		public int getRecent_ts() {
+			return recent_ts;
+		}
+		public void setRecent_ts(int recent_ts) {
+			this.recent_ts = recent_ts;
+		}
+		public Object getRecentVal() {
+			return recentVal;
+		}
+		public void setRecentVal(Object data) {
+			this.recentVal = data;
+		}
 		public boolean isJobChanged() {
 			return isJobChanged;
 		}

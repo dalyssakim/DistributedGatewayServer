@@ -30,7 +30,7 @@ import com.mydistributedsystem.socket.SocketFactory;
 
 public class DataGen {
 	
-	final static String INET_ADDR = "192.168.11.10";
+	final static String INET_ADDR = "192.168.0.222";
 	final static int PORT = 8888;
 	final static int id = 2;
 	

@@ -8,7 +8,7 @@ public abstract class Node {
 		private int priority;
 		private String jobName;
 		private boolean isJobChanged = false;
-		
+		private int recent_ts ; //  
 		
 		
 		public boolean isJobChanged() {
@@ -47,7 +47,12 @@ public abstract class Node {
 		public void setJobName(String jobName) {
 			this.jobName = jobName;
 		}
-		
+		public int getRecentTs(){
+			return this.recent_ts;
+		}
+		public void setRecentTs(int ts){
+			this.recent_ts = ts ;
+		}
 
 		
 		

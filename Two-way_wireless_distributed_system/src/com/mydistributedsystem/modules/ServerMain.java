@@ -2,6 +2,7 @@ package com.mydistributedsystem.modules;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import com.mydistributedsystem.faulttolerance.Timer;
 import com.mydistributedsystem.interfaces.JobFactory;
 import com.mydistributedsystem.nodes.GatewayNode;
 import com.mydistributedsystem.nodes.Group;
@@ -41,7 +42,8 @@ public class ServerMain {
 		glist.add(group1);
 		NodeManager.getNodeManager().addNode(node.getId(), node );
 		NodeManager.getNodeManager().addNode(node2.getId(), node2 );
-
+		Timer timer = new Timer();
+		timer.start();
 
 		NodeManager.getNodeManager().addObserver(SystemMonitor.getMonitor());
 		SystemMonitor.getMonitor().prepareGUI();

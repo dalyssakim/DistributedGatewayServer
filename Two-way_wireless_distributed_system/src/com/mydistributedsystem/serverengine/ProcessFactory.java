@@ -13,6 +13,9 @@ public class ProcessFactory {
 	
 	public static EngineProcess EngineProcess(JDMessage msg) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
 		
+		
+		
+		
 		if(NodeManager.getNodeManager().getNode(msg.id).isJobChanged()){
 			NodeManager.getNodeManager().getNode(msg.id).setJobChanged(false);
 			return new processSendInterface();
